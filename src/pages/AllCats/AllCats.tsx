@@ -18,7 +18,7 @@ function AllCats() {
   return (
     <SC.Container>
       {cats.map((cat) => (
-        <CatCard key={cat.id} url={cat.url} />
+        <CatCard key={cat.id} id={cat.id} url={cat.url} isLiked={cat.isLiked} />
       ))}
     </SC.Container>
   );
