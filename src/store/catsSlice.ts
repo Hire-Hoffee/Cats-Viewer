@@ -29,9 +29,12 @@ const catsSlice = createSlice({
     setLoading: (state, action: PayloadAction<boolean>) => {
       state.isLoading = action.payload;
     },
+    setPage: (state, action: PayloadAction<number>) => {
+      state.page = action.payload;
+    },
   },
 });
 
-export const { setCats, setLike, setLoading } = catsSlice.actions;
+export const { setCats, setLike, setLoading, setPage } = catsSlice.actions;
 
 export default catsSlice.reducer;

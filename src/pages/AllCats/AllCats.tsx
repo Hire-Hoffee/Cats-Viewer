@@ -3,7 +3,7 @@ import CatCard from "@/components/CatCard/CatCard";
 import * as SC from "./AllCats.style";
 import { getAllCats } from "@/api/requests";
 import { useAppDispatch, useAppSelector } from "@/store";
-import { setCats, setLoading } from "@/store/catsSlice";
+import { setCats, setLoading, setPage } from "@/store/catsSlice";
 import { Typography } from "@mui/material";
 import { useInView } from "react-intersection-observer";
 
@@ -11,6 +11,7 @@ function AllCats() {
   const dispatch = useAppDispatch();
   const cats = useAppSelector((state) => state.data.cats);
   const isLoading = useAppSelector((state) => state.data.isLoading);
+  const page = useAppSelector((state) => state.data.page);
   const { ref, inView } = useInView({
     threshold: 1,
   });
@@ -18,14 +19,16 @@ function AllCats() {
   useEffect(() => {
     if (cats.length === 0) {
       dispatch(setLoading(true));
-      getAllCats().then((res) => {
+      getAllCats(page).then((res) => {
         dispatch(setCats(res.data));
         dispatch(setLoading(false));
+        dispatch(setPage(page + 1));
       });
     }
     if (inView) {
-      getAllCats().then((res) => {
+      getAllCats(page).then((res) => {
         dispatch(setCats(res.data));
+        dispatch(setPage(page + 1));
       });
     }
   }, [inView]);
