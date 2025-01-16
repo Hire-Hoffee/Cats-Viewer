@@ -1,5 +1,18 @@
+import CatCard from "../../components/CatCard/CatCard";
+import * as SC from "./AllCats.style";
+
 function AllCats() {
-  return <div>AllCats</div>;
+  return (
+    <SC.Container>
+      <CatCard />
+      <CatCard />
+      <CatCard />
+      <CatCard />
+      <CatCard />
+      <CatCard />
+      <CatCard />
+    </SC.Container>
+  );
 }
 
 export default AllCats;
