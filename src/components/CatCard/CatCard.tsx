@@ -13,7 +13,8 @@ type Props = {
 };
 
 function CatCard({ id, url, isLiked }: Props) {
-  const [hovered, setHovered] = useState(false);
+  const [isLikeHovered, setIsLikeHovered] = useState(false);
+  const [isCardHovered, setIsCardHovered] = useState(false);
   const dispatch = useAppDispatch();
 
   const handleLike = () => {
@@ -21,15 +22,21 @@ function CatCard({ id, url, isLiked }: Props) {
   };
 
   return (
-    <SC.Card>
+    <SC.Card
+      onMouseEnter={() => setIsCardHovered(true)}
+      onMouseLeave={() => setIsCardHovered(false)}
+    >
       <img src={url} alt="cat" />
-      <img
-        onClick={handleLike}
-        src={hovered ? hoveredLike : isLiked ? liked : like}
-        alt="like"
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-      />
+      {(isCardHovered || isLiked) && (
+        <img
+          className="like"
+          onClick={handleLike}
+          src={isLikeHovered ? hoveredLike : isLiked ? liked : like}
+          alt="like"
+          onMouseEnter={() => setIsLikeHovered(true)}
+          onMouseLeave={() => setIsLikeHovered(false)}
+        />
+      )}
     </SC.Card>
   );
 }

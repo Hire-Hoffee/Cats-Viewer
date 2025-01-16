@@ -16,7 +16,7 @@ export const Card = styled(Paper)`
     height: 100%;
     object-fit: cover;
   }
-  img:last-child {
+  .like {
     position: absolute;
     width: 48px;
     height: 48px;
