@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as SC from "./CatCard.style";
-import like from "../../assets/like.svg";
-import hoveredLike from "../../assets/hovered-like.svg";
+import like from "@/assets/like.svg";
+import hoveredLike from "@/assets/hovered-like.svg";
 
 type Props = {
   url: string;

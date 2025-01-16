@@ -1,14 +1,18 @@
-import { useState, useEffect } from "react";
-import CatCard from "../../components/CatCard/CatCard";
+import { useEffect } from "react";
+import CatCard from "@/components/CatCard/CatCard";
 import * as SC from "./AllCats.style";
-import { getAllCats } from "../../api/requests";
-import type { Cat } from "../../types/cats";
+import { getAllCats } from "@/api/requests";
+import { useAppDispatch, useAppSelector } from "@/store";
+import { setCats } from "@/store/catsSlice";
 
 function AllCats() {
-  const [cats, setCats] = useState<Cat[]>([]);
+  const dispatch = useAppDispatch();
+  const cats = useAppSelector((state) => state.data.cats);
 
   useEffect(() => {
-    getAllCats().then((res) => setCats(res.data));
+    getAllCats().then((res) => {
+      dispatch(setCats(res.data));
+    });
   }, []);
 
   return (
