@@ -24,7 +24,7 @@ export const Container = styled(Box)`
   }
 
   @media (max-width: 600px) {
-    grid-template-columns: 1fr;
-    gap: 16px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
 `;

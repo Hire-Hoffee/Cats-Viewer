@@ -25,4 +25,8 @@ export const Card = styled(Paper)`
     right: 10px;
     cursor: pointer;
   }
+  @media (max-width: 600px) {
+    width: 150px;
+    height: 150px;
+  }
 `;
