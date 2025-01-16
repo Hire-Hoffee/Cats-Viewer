@@ -10,9 +10,11 @@ function AllCats() {
   const cats = useAppSelector((state) => state.data.cats);
 
   useEffect(() => {
-    getAllCats().then((res) => {
-      dispatch(setCats(res.data));
-    });
+    if (cats.length === 0) {
+      getAllCats().then((res) => {
+        dispatch(setCats(res.data));
+      });
+    }
   }, []);
 
   return (
