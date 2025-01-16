@@ -1,9 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { Cat } from "@/types/cats";
 
-const initialState: { cats: Cat[]; isLoading: boolean } = {
+type CatsState = { cats: Cat[]; isLoading: boolean; page: number };
+
+const initialState: CatsState = {
   cats: [],
   isLoading: false,
+  page: 1,
 };
 
 const catsSlice = createSlice({
@@ -11,7 +14,7 @@ const catsSlice = createSlice({
   initialState,
   reducers: {
     setCats: (state, action: PayloadAction<Cat[]>) => {
-      state.cats = [...action.payload];
+      state.cats = [...state.cats, ...action.payload];
     },
     setLike: (state, action: PayloadAction<string>) => {
       state.cats = [
