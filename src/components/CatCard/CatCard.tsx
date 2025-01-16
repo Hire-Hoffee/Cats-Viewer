@@ -3,15 +3,17 @@ import * as SC from "./CatCard.style";
 import like from "../../assets/like.svg";
 import hoveredLike from "../../assets/hovered-like.svg";
 
-function CatCard() {
+type Props = {
+  url: string;
+  isLiked?: boolean;
+};
+
+function CatCard({ url }: Props) {
   const [hovered, setHovered] = useState(false);
 
   return (
     <SC.Card>
-      <img
-        src="https://cdn.shopify.com/s/files/1/0673/5325/files/LadyDinahs_Cat_Cafe_Alice-Block_2048x.jpg"
-        alt="cat"
-      />
+      <img src={url} alt="cat" />
       <img
         src={hovered ? hoveredLike : like}
         alt="like"
