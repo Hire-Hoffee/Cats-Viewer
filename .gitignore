@@ -18,6 +18,7 @@ dist-ssr
 .idea
 node_modules/
 *.tsbuildinfo
+.env
 
 .DS_Store
 *.suo

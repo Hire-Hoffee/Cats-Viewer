@@ -4,6 +4,6 @@ export const api = axios.create({
   baseURL: "https://api.thecatapi.com",
   headers: {
     "Content-Type": "application/json",
-    "x-api-key": "DEMO-API-KEY",
+    "x-api-key": `${import.meta.env.API_KEY}`,
   },
 });
