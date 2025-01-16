@@ -1,18 +1,18 @@
-import { AppBar, Box, Toolbar, Typography } from "@mui/material";
+import { AppBar, Box, Typography } from "@mui/material";
 import * as SC from "./Navbar.style";
 
 function Navbar() {
   return (
     <Box>
       <AppBar position="static">
-        <Toolbar sx={{ gap: "40px" }}>
+        <SC.Bar>
           <Typography variant="h6" component="div">
             <SC.Link to="/all">Все котики</SC.Link>
           </Typography>
           <Typography variant="h6" component="div">
             <SC.Link to="/liked">Любимые котики</SC.Link>
           </Typography>
-        </Toolbar>
+        </SC.Bar>
       </AppBar>
     </Box>
   );

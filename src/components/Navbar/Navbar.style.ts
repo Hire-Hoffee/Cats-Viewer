@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { NavLink } from "react-router";
+import { Toolbar } from "@mui/material";
 
 export const Link = styled(NavLink)`
   opacity: 0.7;
@@ -11,5 +12,18 @@ export const Link = styled(NavLink)`
     opacity: 1;
     font-size: 16px;
     transition: 0.2s;
+  }
+  .MuiToolbar-root {
+    @media (max-width: 900px) {
+      justify-content: center !important;
+    }
+  }
+`;
+
+export const Bar = styled(Toolbar)`
+  gap: 48px;
+  @media (max-width: 700px) {
+    justify-content: center !important;
+    gap: 24px;
   }
 `;
